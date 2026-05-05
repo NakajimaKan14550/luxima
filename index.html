@@ -22,13 +22,27 @@
       background-color: #ffffff;
     }
 
+    /* ヘッダー・ロゴ周りの調整 */
     .hero {
       background: var(--dark);
       background-image: radial-gradient(circle at 10% 20%, #1e3a2a 0%, #121212 100%);
       color: white;
-      padding: 100px 20px;
+      padding: 80px 20px;
       text-align: center;
       border-bottom: 4px solid var(--primary);
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 10px;
+    }
+
+    .logo-img {
+      height: 40px; /* タイトル横に合わせたサイズ */
+      width: auto;
     }
 
     .report-badge {
@@ -36,9 +50,10 @@
       background: var(--primary);
       padding: 5px 15px;
       border-radius: 20px;
-      font-size: 0.9rem;
+      font-size: 0.8rem;
       font-weight: bold;
       margin-bottom: 20px;
+      letter-spacing: 1px;
     }
 
     .container {
@@ -51,9 +66,10 @@
     .feature-img-box {
       text-align: center;
       margin: 40px 0;
-      border-radius: 15px;
+      border-radius: 12px;
       overflow: hidden;
       box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      border: 1px solid #eee;
     }
 
     .feature-img-box img {
@@ -65,39 +81,30 @@
     .img-caption {
       background: var(--dark-gray);
       color: white;
-      padding: 15px;
-      font-size: 0.9rem;
-      font-weight: 500;
+      padding: 12px;
+      font-size: 0.85rem;
     }
 
-    /* 強化された「強み・特徴」セクション */
+    /* 技術カード */
     .tech-deep-dive {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 40px;
+      gap: 30px;
       margin: 40px 0;
     }
 
     .tech-card {
       background: var(--bg-light);
-      padding: 30px;
-      border-radius: 15px;
-      border-top: 4px solid var(--primary);
+      padding: 25px;
+      border-radius: 12px;
+      border-left: 4px solid var(--primary);
     }
 
     .tech-card h3 {
       color: var(--dark);
       margin-top: 0;
-      font-size: 1.3rem;
-      display: flex;
-      align-items: center;
-    }
-
-    .tech-card h3::before {
-      content: '●';
-      color: var(--primary);
-      margin-right: 10px;
-      font-size: 0.8rem;
+      font-size: 1.1rem;
+      margin-bottom: 10px;
     }
 
     .summary-box {
@@ -105,33 +112,37 @@
       color: white;
       padding: 40px;
       border-radius: 15px;
-      margin-top: -80px;
+      margin-top: -60px;
       box-shadow: 0 15px 30px rgba(0,0,0,0.2);
     }
 
     h2.section-title {
-      font-size: 2rem;
-      border-bottom: 2px solid #eee;
-      padding-bottom: 10px;
+      font-size: 1.8rem;
+      border-bottom: 2px solid var(--primary);
+      display: inline-block;
+      padding-bottom: 5px;
       margin-top: 60px;
+      margin-bottom: 30px;
     }
 
     .special-report {
       background: #f0f4f2;
-      padding: 60px 40px;
-      border-radius: 20px;
-      margin: 60px 0;
+      padding: 40px;
+      border-radius: 15px;
+      margin: 40px 0;
     }
 
     footer {
       background: var(--dark);
       color: #777;
       text-align: center;
-      padding: 60px 20px;
+      padding: 40px 20px;
+      font-size: 0.8rem;
     }
 
     @media (max-width: 768px) {
       .tech-deep-dive { grid-template-columns: 1fr; }
+      .header-content { flex-direction: column; }
     }
   </style>
 </head>
@@ -139,87 +150,64 @@
 
 <section class="hero">
   <span class="report-badge">TECHNICAL DEEP DIVE</span>
-  <h1>Luximaの真価：<br>超高速センシングが切り拓く「一瞬のデジタル化」</h1>
-  <p>単なる高フレームレートを超えた、産業用CMOSセンサーの技術的優位性</p>
+  <div class="header-content">
+    <img src="lux.png" alt="Luxima Logo" class="logo-img">
+    <h1 style="margin: 0; font-size: 2.2rem;">Luximaの真価</h1>
+  </div>
+  <p style="opacity: 0.9;">超高速センシングが切り拓く「一瞬のデジタル化」</p>
 </section>
 
 <div class="container">
   <div class="summary-box">
-    <h2>エグゼクティブ・サマリー</h2>
-    <ol>
-      <li>最大9,000fps超の撮影能力により、ミリ秒以下の物理現象を歪みなくデータ化。</li>
-      <li>特許技術の多並列読み出し構造が、24Gbps超の圧倒的スループットを実現。</li>
-      <li>可視光からUV領域までカバーする高感度BSI構造が、特殊環境の検査を可能にする。</li>
-    </ol>
+    <h2 style="margin-top: 0; color: var(--primary);">エグゼクティブ・サマリー</h2>
+    <p>製造現場や研究開発における「物理的ボトルネック」を、時間軸の分解能向上によって解消するアプローチ。</p>
+    <ul style="padding-left: 20px;">
+      <li><strong>超高速：</strong> 最大9,000fpsによる、ミリ秒以下の現象の完全捕捉。</li>
+      <li><strong>高帯域：</strong> 24Gbps超の多並列読み出し構造によるデータ転送。</li>
+      <li><strong>高品質：</strong> グローバルシャッターによる「動体歪み」の完全排除。</li>
+    </ul>
   </div>
 
   <section class="content-section">
-    <h2 class="section-title">Luximaが圧倒的である4つの理由</h2>
-    
-    <!-- 技術象徴イメージ -->
-    <div class="feature-img-box">
-      <img src="lux.png" alt="Luxima Sensor Technology">
-      <div class="img-caption">Luxima独自の多チャネル並列ADコンバータ設計アーキテクチャ</div>
-    </div>
-    
+    <h2 class="section-title">Luximaが選ばれる4つの技術的柱</h2>
     <div class="tech-deep-dive">
       <div class="tech-card">
-        <h3>多階層並列読み出し構造</h3>
-        <p>
-          読み出し速度の限界を、独自の多チャネル設計により打破。
-          <strong>24Gbps</strong>という超広帯域を実現し、高解像度と超高速レートを両立。
-        </p>
+        <h3>多階層並列読み出し</h3>
+        <p>独自の多チャネルADコンバータ設計。高速かつ高解像度な情報のデジタル化を遅延なく実行します。</p>
       </div>
       <div class="tech-card">
-        <h3>BSI（裏面照射型）の感度</h3>
-        <p>
-          配線層に邪魔されない受光面。<strong>200nm〜400nmのUV領域</strong>においても高い感度を維持。放電解析や特殊検査に威力を発揮。
-        </p>
+        <h3>BSI（裏面照射型）構造</h3>
+        <p>可視光からUV（200nm〜）領域まで高い感度を維持。放電現象など特殊な物理現象の可視化に最適です。</p>
       </div>
       <div class="tech-card">
         <h3>真のグローバルシャッター</h3>
-        <p>
-          全画素を同時露光。動体歪みを排除し、外部トリガーに対する<strong>マイクロ秒単位の同期レスポンス</strong>を実現。
-        </p>
+        <p>全画素同一タイミング露光。マイクロ秒単位の同期レスポンスで、レーザー等の外部光源と精密に連動します。</p>
       </div>
       <div class="tech-card">
-        <h3>優れた階調性と低ノイズ</h3>
-        <p>
-          オンチップCDS技術により、高速撮影時のノイズを抑制。AI解析に耐えうる「情報の質」を担保した高速連写が可能。
-        </p>
+        <h3>高S/N比・低ノイズ</h3>
+        <p>オンチップCDS技術を搭載。AI解析の精度を左右する「データの純度」を高速撮影下でも維持します。</p>
       </div>
     </div>
   </section>
 
   <section class="special-report">
-    <h2 class="section-title">応用事例：スポーツ・動作解析</h2>
-    
-    <!-- ゴルフ解析イメージ -->
+    <h2 class="section-title">Case Study：一瞬のデジタル化</h2>
     <div class="feature-img-box">
       <img src="golf.png" alt="Golf Swing Analysis">
-      <div class="img-caption">インパクトの瞬間をミリ単位で可視化する超高速センシング</div>
+      <div class="img-caption">スポーツ解析におけるインパクトの瞬間捕捉例</div>
     </div>
-
     <p>
-      ゴルフスイングにおけるインパクトは、わずか数百マイクロ秒の世界。
-      通常のカメラでは「ブレ」や「歪み」として処理される挙動も、Luximaなら歪みのないデジタルデータとして抽出可能です。
-      これにより、ヘッドの入射角やスピン量、シャフトの撓みを精密にシミュレートし、パフォーマンスの極限を数値化します。
+      ゴルフスイングのような、人間には視認不可能な「インパクトの瞬間」をLuximaは正確に捉えます。
+      単なるスローモーション動画ではなく、ヘッドの角度やシャフトの撓みといった**「数値データ」**を抽出するための高精細な画像を提供し、自動解析の精度を飛躍的に向上させます。
     </p>
   </section>
 
-  <section class="content-section">
-    <h2 class="section-title">市場の現状分析：時間軸の分解能へ</h2>
-    <p>
-      自動車の衝突テストや半導体検査において、Luximaの強みは数値上のカタログスペックに留まりません。
-      グローバルシャッターによる「動体歪みの物理的排除」こそが、シミュレーションと現実の誤差をゼロに近づける唯一の手段です。
-      これまで「見えていなかった」一瞬を、確実な「経営判断のデータ」へと昇華させます。
-    </p>
-  </section>
-
-  <section class="editor-note" style="border-left: 5px solid var(--primary); padding-left: 20px; margin: 40px 0;">
-    <p style="font-style: italic;">
-      現場レベルでの技術的課題（データ欠損、光学設計の限界、UV感度の不足）に対し、我々はシステム設計の最適化案を共有可能です。
-      次世代の製造ライン・自動化構築に向けた、技術的な壁打ち相手としてご活用ください。
+  <section class="content-section" style="text-align: center; background: var(--bg-light); padding: 40px; border-radius: 15px;">
+    <h3>DX自動化・人員削減の鍵</h3>
+    <p style="max-width: 700px; margin: 0 auto; text-align: left;">
+      自動化の現場で最もコストがかかるのは「再試験」と「不良原因の特定」です。
+      Luximaの超高速センシングを組み込むことで、これまでブラックボックスだった高速動作中のトラブルをデータで可視化。
+      目視点検に頼らない、AI主導の品質管理と人員最適化を加速させます。
     </p>
   </section>
 </div>
