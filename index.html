@@ -47,6 +47,29 @@
       padding: 60px 20px;
     }
 
+    /* 画像配置用スタイル */
+    .feature-img-box {
+      text-align: center;
+      margin: 40px 0;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .feature-img-box img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .img-caption {
+      background: var(--dark-gray);
+      color: white;
+      padding: 15px;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
     /* 強化された「強み・特徴」セクション */
     .tech-deep-dive {
       display: grid;
@@ -77,14 +100,6 @@
       font-size: 0.8rem;
     }
 
-    .spec-highlight {
-      background: #e9f7ef;
-      padding: 20px;
-      border-radius: 10px;
-      margin-bottom: 30px;
-    }
-
-    /* 既存構成の維持 */
     .summary-box {
       background: var(--dark-gray);
       color: white;
@@ -132,74 +147,79 @@
   <div class="summary-box">
     <h2>エグゼクティブ・サマリー</h2>
     <ol>
-      <li>Luximaの最大9,000fpsは、ミリ秒以下の物理現象を「静止画」として固定可能にする。</li>
-      <li>BSI構造による高開口率が、極短露光下での圧倒的なS/N比を実現。</li>
-      <li>多並列データ出力アーキテクチャにより、24Gbps超のリアルタイム伝送を可能とした。</li>
+      <li>最大9,000fps超の撮影能力により、ミリ秒以下の物理現象を歪みなくデータ化。</li>
+      <li>特許技術の多並列読み出し構造が、24Gbps超の圧倒的スループットを実現。</li>
+      <li>可視光からUV領域までカバーする高感度BSI構造が、特殊環境の検査を可能にする。</li>
     </ol>
   </div>
 
   <section class="content-section">
     <h2 class="section-title">Luximaが圧倒的である4つの理由</h2>
     
+    <!-- 技術象徴イメージ -->
+    <div class="feature-img-box">
+      <img src="lux.png" alt="Luxima Sensor Technology">
+      <div class="img-caption">Luxima独自の多チャネル並列ADコンバータ設計アーキテクチャ</div>
+    </div>
+    
     <div class="tech-deep-dive">
       <div class="tech-card">
         <h3>多階層並列読み出し構造</h3>
         <p>
-          従来のセンサーが直面する読み出し速度の限界を、独自の多チャネル並列ADコンバータ設計により打破。
-          <strong>24Gbps</strong>という超広帯域を実現し、高解像度と超高速フレームレートの両立を可能にしました。
+          読み出し速度の限界を、独自の多チャネル設計により打破。
+          <strong>24Gbps</strong>という超広帯域を実現し、高解像度と超高速レートを両立。
         </p>
       </div>
       <div class="tech-card">
-        <h3>BSI（裏面照射型）による高量子効率</h3>
+        <h3>BSI（裏面照射型）の感度</h3>
         <p>
-          配線層に邪魔されない受光面を実現。特に可視光のみならず、<strong>200nm〜400nmのUV（紫外線）領域</strong>において高い感度を維持しており、放電解析や特殊材料検査に威力を発揮します。
+          配線層に邪魔されない受光面。<strong>200nm〜400nmのUV領域</strong>においても高い感度を維持。放電解析や特殊検査に威力を発揮。
         </p>
       </div>
       <div class="tech-card">
-        <h3>真のグローバルシャッター性能</h3>
+        <h3>真のグローバルシャッター</h3>
         <p>
-          全画素を同一タイミングで露光。動体歪みを排除するだけでなく、外部トリガーに対する<strong>マイクロ秒単位の同期レスポンス</strong>を実現しており、レーザー光源等との精密な連動が可能です。
+          全画素を同時露光。動体歪みを排除し、外部トリガーに対する<strong>マイクロ秒単位の同期レスポンス</strong>を実現。
         </p>
       </div>
       <div class="tech-card">
         <h3>優れた階調性と低ノイズ</h3>
         <p>
-          高速撮影で課題となる「ノイズ」を抑えるオンチップCDS（相関二重サンプリング）技術を搭載。暗部から明部まで、AI解析に必要な「情報の質」を担保したまま高速連写が可能です。
+          オンチップCDS技術により、高速撮影時のノイズを抑制。AI解析に耐えうる「情報の質」を担保した高速連写が可能。
         </p>
       </div>
     </div>
   </section>
 
-  <section class="content-section">
-    <h2 class="section-title">市場の現状分析：時間軸の分解能へのシフト</h2>
-    <p>
-      現在、自動車の衝突テスト、半導体マスク検査、高速マウンタといった現場では、1,000fpsから9,000fpsの撮影が標準となっています。
-      Luximaの強みは、単なるカタログスペックの数値ではなく、グローバルシャッターによる「動体歪みの物理的排除」にあります。
-      これにより、これまで「ブレ」として切り捨てられていた移動体の実像を、シミュレーションと寸分違わぬ精度で記録することが可能となりました。
-    </p>
-  </section>
-
   <section class="special-report">
-    <h2 class="section-title">衝突テストにおける「歪み」の排除</h2>
+    <h2 class="section-title">応用事例：スポーツ・動作解析</h2>
+    
+    <!-- ゴルフ解析イメージ -->
+    <div class="feature-img-box">
+      <img src="golf.png" alt="Golf Swing Analysis">
+      <div class="img-caption">インパクトの瞬間をミリ単位で可視化する超高速センシング</div>
+    </div>
+
     <p>
-      EVの普及に伴い、バッテリーセルの熱暴走や衝撃波伝播の可視化が急務となっています。
-      ローリングシャッター方式による「読み出しの時間差」は、本来存在しない挙動を画像上に作り出し、シミュレーションの信頼性を根底から覆します。
-      Luximaの同時露光アーキテクチャこそが、データの整合性を担保し、再試験のコストを劇的に削減する唯一の手段です。
+      ゴルフスイングにおけるインパクトは、わずか数百マイクロ秒の世界。
+      通常のカメラでは「ブレ」や「歪み」として処理される挙動も、Luximaなら歪みのないデジタルデータとして抽出可能です。
+      これにより、ヘッドの入射角やスピン量、シャフトの撓みを精密にシミュレートし、パフォーマンスの極限を数値化します。
     </p>
   </section>
 
   <section class="content-section">
-    <h2 class="section-title">202X年の展望：光学系とデータの垂直統合</h2>
+    <h2 class="section-title">市場の現状分析：時間軸の分解能へ</h2>
     <p>
-      今後の戦略的アプローチは「光」と「眼」の同期に集約されます。
-      センサーの能力を引き出すには、光学系の設計そのものを最適化し、24Gbpsという巨大なデータ流を受け止めるモジュール式の通信基盤が必要不可欠となります。
+      自動車の衝突テストや半導体検査において、Luximaの強みは数値上のカタログスペックに留まりません。
+      グローバルシャッターによる「動体歪みの物理的排除」こそが、シミュレーションと現実の誤差をゼロに近づける唯一の手段です。
+      これまで「見えていなかった」一瞬を、確実な「経営判断のデータ」へと昇華させます。
     </p>
   </section>
 
-  <section class="editor-note">
-    <p>
+  <section class="editor-note" style="border-left: 5px solid var(--primary); padding-left: 20px; margin: 40px 0;">
+    <p style="font-style: italic;">
       現場レベルでの技術的課題（データ欠損、光学設計の限界、UV感度の不足）に対し、我々はシステム設計の最適化案を共有可能です。
-      次世代の製造ライン構築に向けた、技術的な壁打ち相手としてご活用ください。
+      次世代の製造ライン・自動化構築に向けた、技術的な壁打ち相手としてご活用ください。
     </p>
   </section>
 </div>
