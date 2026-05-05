@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Industry Report | Luxima - 超高速CMOSセンサーの真実</title>
+  <title>Deep Tech Report | Luxima - 究極の「眼」がもたらす物理限界の突破</title>
   <style>
     :root {
       --primary: #28a745;
       --dark: #121212;
       --dark-gray: #1e1e1e;
       --accent-green: #20c997;
-      --text-gray: #999;
       --bg-light: #f8f9fa;
+      --border-color: #333;
     }
 
     body {
@@ -22,7 +22,6 @@
       background-color: #ffffff;
     }
 
-    /* ヘッダー・ヒーロー */
     .hero {
       background: var(--dark);
       background-image: radial-gradient(circle at 10% 20%, #1e3a2a 0%, #121212 100%);
@@ -32,13 +31,7 @@
       border-bottom: 4px solid var(--primary);
     }
 
-    .hero h1 {
-      font-size: 2.8rem;
-      margin-bottom: 20px;
-      letter-spacing: -0.5px;
-    }
-
-    .hero .report-badge {
+    .report-badge {
       display: inline-block;
       background: var(--primary);
       padding: 5px 15px;
@@ -54,7 +47,44 @@
       padding: 60px 20px;
     }
 
-    /* サマリー・セクション */
+    /* 強化された「強み・特徴」セクション */
+    .tech-deep-dive {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin: 40px 0;
+    }
+
+    .tech-card {
+      background: var(--bg-light);
+      padding: 30px;
+      border-radius: 15px;
+      border-top: 4px solid var(--primary);
+    }
+
+    .tech-card h3 {
+      color: var(--dark);
+      margin-top: 0;
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .tech-card h3::before {
+      content: '●';
+      color: var(--primary);
+      margin-right: 10px;
+      font-size: 0.8rem;
+    }
+
+    .spec-highlight {
+      background: #e9f7ef;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+    }
+
+    /* 既存構成の維持 */
     .summary-box {
       background: var(--dark-gray);
       color: white;
@@ -64,72 +94,13 @@
       box-shadow: 0 15px 30px rgba(0,0,0,0.2);
     }
 
-    .summary-box h2 {
-      color: var(--primary);
-      margin-top: 0;
-      font-size: 1.5rem;
-    }
-
-    .summary-box ol {
-      padding-left: 20px;
-      margin-bottom: 0;
-    }
-
-    .summary-box li {
-      margin-bottom: 15px;
-      font-size: 1.1rem;
-    }
-
-    /* 記事コンテンツ */
-    .content-section {
-      margin-bottom: 80px;
-    }
-
     h2.section-title {
       font-size: 2rem;
       border-bottom: 2px solid #eee;
       padding-bottom: 10px;
-      margin-bottom: 30px;
-      position: relative;
+      margin-top: 60px;
     }
 
-    h2.section-title::after {
-      content: "";
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      width: 80px;
-      height: 2px;
-      background: var(--primary);
-    }
-
-    h3 {
-      color: var(--primary);
-      font-size: 1.4rem;
-      margin-top: 40px;
-    }
-
-    .paradox-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 30px;
-      margin: 40px 0;
-    }
-
-    .paradox-card {
-      background: var(--bg-light);
-      padding: 30px;
-      border-left: 5px solid var(--primary);
-      border-radius: 0 10px 10px 0;
-    }
-
-    .paradox-card strong {
-      display: block;
-      margin-bottom: 10px;
-      font-size: 1.2rem;
-    }
-
-    /* 衝突テスト・セクション */
     .special-report {
       background: #f0f4f2;
       padding: 60px 40px;
@@ -137,124 +108,104 @@
       margin: 60px 0;
     }
 
-    /* 編集後記 */
-    .editor-note {
-      background: white;
-      border: 1px solid var(--primary);
-      padding: 40px;
-      border-radius: 15px;
-      position: relative;
-    }
-
-    .editor-note::before {
-      content: "Editor's Note";
-      position: absolute;
-      top: -15px;
-      left: 30px;
-      background: var(--primary);
-      color: white;
-      padding: 2px 15px;
-      font-size: 0.8rem;
-      border-radius: 10px;
-    }
-
-    /* フッター */
     footer {
       background: var(--dark);
-      color: var(--text-gray);
+      color: #777;
       text-align: center;
       padding: 60px 20px;
     }
 
     @media (max-width: 768px) {
-      .paradox-grid { grid-template-columns: 1fr; }
-      .hero h1 { font-size: 2rem; }
+      .tech-deep-dive { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
 <section class="hero">
-  <span class="report-badge">INDUSTRY TREND REPORT 202X</span>
-  <h1>「1000fpsの壁」を超えた製造現場が直面する、<br>データ転送と光制御のパラドックス</h1>
-  <p>高速画像解析のボトルネックを解き明かし、次世代のシステム設計を展望する</p>
+  <span class="report-badge">TECHNICAL DEEP DIVE</span>
+  <h1>Luximaの真価：<br>超高速センシングが切り拓く「一瞬のデジタル化」</h1>
+  <p>単なる高フレームレートを超えた、産業用CMOSセンサーの技術的優位性</p>
 </section>
 
 <div class="container">
-  <!-- エグゼクティブ・サマリー -->
   <div class="summary-box">
     <h2>エグゼクティブ・サマリー</h2>
     <ol>
-      <li>超高速CMOSセンサーの普及により「現象の可視化」精度は飛躍的に向上した。</li>
-      <li>センサー性能に対し、データ転送能力や光学系の追従がボトルネック化している。</li>
-      <li>光学系とデータ基盤を統合した「高スループットなシステム設計」が競争優位を左右する。</li>
+      <li>Luximaの最大9,000fpsは、ミリ秒以下の物理現象を「静止画」として固定可能にする。</li>
+      <li>BSI構造による高開口率が、極短露光下での圧倒的なS/N比を実現。</li>
+      <li>多並列データ出力アーキテクチャにより、24Gbps超のリアルタイム伝送を可能とした。</li>
     </ol>
   </div>
 
-  <!-- 市場の現状 -->
   <section class="content-section">
-    <h2 class="section-title">市場の現状分析</h2>
-    <p>
-      自動車の衝突テスト、半導体マスク検査、高速マウンタといった過酷な環境下において、1,000fpsから9,000fpsという極めて高いフレームレートでの撮影が標準となりつつある。
-      特に、裏面照射型（BSI）構造を採用した最新技術は、UV（紫外線）領域への感度を高め、グローバルシャッター方式により動体の歪みを物理的に排除することに成功している。
-      トレンドは単なる解像度から「時間軸の分解能」へとシフトしている。
-    </p>
-
-    <h3>浮かび上がる「静かなる課題」</h3>
-    <p>センサーのfpsを上げれば良いという単純な仮説には、二つの技術的障壁が存在する。</p>
+    <h2 class="section-title">Luximaが圧倒的である4つの理由</h2>
     
-    
-
-    <div class="paradox-grid">
-      <div class="paradox-card">
-        <strong>1. データ転送の飽和</strong>
-        24Gbpsを超える超高速転送ではデータ欠損（パケットロス）が不可避となり、解析精度が低下する逆転現象が起きている。
+    <div class="tech-deep-dive">
+      <div class="tech-card">
+        <h3>多階層並列読み出し構造</h3>
+        <p>
+          従来のセンサーが直面する読み出し速度の限界を、独自の多チャネル並列ADコンバータ設計により打破。
+          <strong>24Gbps</strong>という超広帯域を実現し、高解像度と超高速フレームレートの両立を可能にしました。
+        </p>
       </div>
-      <div class="paradox-card">
-        <strong>2. 光学系の追従不足</strong>
-        「ビームデリバリー」の精度が低いと画像データがボケ、高度なAI解析を導入しても本来の性能を発揮できない。
+      <div class="tech-card">
+        <h3>BSI（裏面照射型）による高量子効率</h3>
+        <p>
+          配線層に邪魔されない受光面を実現。特に可視光のみならず、<strong>200nm〜400nmのUV（紫外線）領域</strong>において高い感度を維持しており、放電解析や特殊材料検査に威力を発揮します。
+        </p>
+      </div>
+      <div class="tech-card">
+        <h3>真のグローバルシャッター性能</h3>
+        <p>
+          全画素を同一タイミングで露光。動体歪みを排除するだけでなく、外部トリガーに対する<strong>マイクロ秒単位の同期レスポンス</strong>を実現しており、レーザー光源等との精密な連動が可能です。
+        </p>
+      </div>
+      <div class="tech-card">
+        <h3>優れた階調性と低ノイズ</h3>
+        <p>
+          高速撮影で課題となる「ノイズ」を抑えるオンチップCDS（相関二重サンプリング）技術を搭載。暗部から明部まで、AI解析に必要な「情報の質」を担保したまま高速連写が可能です。
+        </p>
       </div>
     </div>
   </section>
 
-  <!-- 特集：衝突テスト -->
+  <section class="content-section">
+    <h2 class="section-title">市場の現状分析：時間軸の分解能へのシフト</h2>
+    <p>
+      現在、自動車の衝突テスト、半導体マスク検査、高速マウンタといった現場では、1,000fpsから9,000fpsの撮影が標準となっています。
+      Luximaの強みは、単なるカタログスペックの数値ではなく、グローバルシャッターによる「動体歪みの物理的排除」にあります。
+      これにより、これまで「ブレ」として切り捨てられていた移動体の実像を、シミュレーションと寸分違わぬ精度で記録することが可能となりました。
+    </p>
+  </section>
+
   <section class="special-report">
     <h2 class="section-title">衝突テストにおける「歪み」の排除</h2>
     <p>
-      EVの普及により衝突テストの要件は高度化し、バッテリーセルの熱暴走や衝撃波伝播の可視化が必須となっている。
-      しかし、主流のローリングシャッター方式では「ジェロー効果（像の歪み）」が発生し、解析の信頼性を著しく低下させる。
-    </p>
-    
-    
-    
-    <h3>技術的回答としてのグローバルシャッター</h3>
-    <p>
-      Luximaのような全画素同時露光アーキテクチャは、動体歪みを物理的にゼロにする。
-      シミュレーションと実測の乖離を埋める唯一の手段であり、再試験や設計手戻りという莫大なコスト（時間と資金）を防ぐ鍵となる。
+      EVの普及に伴い、バッテリーセルの熱暴走や衝撃波伝播の可視化が急務となっています。
+      ローリングシャッター方式による「読み出しの時間差」は、本来存在しない挙動を画像上に作り出し、シミュレーションの信頼性を根底から覆します。
+      Luximaの同時露光アーキテクチャこそが、データの整合性を担保し、再試験のコストを劇的に削減する唯一の手段です。
     </p>
   </section>
 
-  <!-- 展望と対策 -->
   <section class="content-section">
-    <h2 class="section-title">202X年の展望と対策</h2>
-    <h3>1. モジュラー・アーキテクチャの採用</h3>
-    <p>通信規格やデータ伝送モジュールを「差し替え可能」な設計にすることで、基板を刷新することなく最新規格へアップデートし続ける柔軟性が必要である。</p>
-    
-    <h3>2. 「光」と「眼」の同期</h3>
-    <p>センサーの性能を最大限に引き出せるよう、光学系の設計図そのものを再考し、光のコントロール基盤を構築しなければならない。</p>
+    <h2 class="section-title">202X年の展望：光学系とデータの垂直統合</h2>
+    <p>
+      今後の戦略的アプローチは「光」と「眼」の同期に集約されます。
+      センサーの能力を引き出すには、光学系の設計そのものを最適化し、24Gbpsという巨大なデータ流を受け止めるモジュール式の通信基盤が必要不可欠となります。
+    </p>
   </section>
 
-  <!-- 編集後記 -->
   <section class="editor-note">
     <p>
-      製造現場のボトルネックは、多くの場合、単一のコンポーネントではなく「データの通り道」と「光の制御」の不一致にあります。
-      データ転送の帯域確保や、光学系の設計精度の限界にお悩みであれば、弊社のネットワークを通じて専門的なソリューションを共有可能です。
+      現場レベルでの技術的課題（データ欠損、光学設計の限界、UV感度の不足）に対し、我々はシステム設計の最適化案を共有可能です。
+      次世代の製造ライン構築に向けた、技術的な壁打ち相手としてご活用ください。
     </p>
   </section>
 </div>
 
 <footer>
-  <p>&copy; 2026 JORYU AI Support | Engineered Excellence</p>
+  <p>&copy; 2026 JORYU AI Support | Engineered Excellence for Kan Nakajima</p>
 </footer>
 
 </body>
