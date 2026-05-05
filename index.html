@@ -3,289 +3,254 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Luxima | Ultra High Speed CMOS Sensor</title>
+  <title>Industry Report | Luxima - 超高速CMOSセンサーの真実</title>
   <style>
-    /* デザインのベース設定 */
     :root {
       --primary: #28a745;
       --dark: #121212;
-      --light-gray: #f8f9fa;
-      --glass: rgba(255, 255, 255, 0.8);
-      --accent-gradient: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+      --dark-gray: #1e1e1e;
+      --accent-green: #20c997;
+      --text-gray: #999;
+      --bg-light: #f8f9fa;
     }
 
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      margin: 0;
+      font-family: 'Inter', -apple-system, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.7;
       color: #333;
+      margin: 0;
       background-color: #ffffff;
-      line-height: 1.6;
     }
 
-    /* ヒーローセクション：波のような動きを感じさせるグラデーション */
+    /* ヘッダー・ヒーロー */
     .hero {
       background: var(--dark);
-      background-image: radial-gradient(circle at 20% 30%, #1e3a2a 0%, #121212 100%);
+      background-image: radial-gradient(circle at 10% 20%, #1e3a2a 0%, #121212 100%);
       color: white;
-      padding: 120px 20px;
+      padding: 100px 20px;
       text-align: center;
-      position: relative;
-      overflow: hidden;
+      border-bottom: 4px solid var(--primary);
     }
 
     .hero h1 {
-      font-size: 3.5rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-      letter-spacing: -1px;
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+      letter-spacing: -0.5px;
     }
 
-    .hero p {
-      font-size: 1.2rem;
-      color: #aaa;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-
-    /* セクションの波形デコレーション（イメージ） */
-    .hero::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 80px;
-      background: white;
-      clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 100%);
+    .hero .report-badge {
+      display: inline-block;
+      background: var(--primary);
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: bold;
+      margin-bottom: 20px;
     }
 
     .container {
-      max-width: 1100px;
+      max-width: 1000px;
       margin: 0 auto;
-      padding: 80px 20px;
+      padding: 60px 20px;
     }
 
-    h2 {
-      font-size: 2.2rem;
-      text-align: center;
-      margin-bottom: 50px;
-      font-weight: 700;
-    }
-
-    /* 活用分野：モダンなカードレイアウト */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-    }
-
-    .card {
-      background: var(--light-gray);
+    /* サマリー・セクション */
+    .summary-box {
+      background: var(--dark-gray);
+      color: white;
       padding: 40px;
-      border-radius: 20px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      border: 1px solid #eee;
+      border-radius: 15px;
+      margin-top: -80px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
     }
 
-    .card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-      border-color: var(--primary);
-    }
-
-    .card h3 {
+    .summary-box h2 {
       color: var(--primary);
       margin-top: 0;
       font-size: 1.5rem;
     }
 
-    /* 技術詳細セクション：左右交互のレイアウト */
-    .feature-row {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      margin-bottom: 100px;
-      gap: 40px;
+    .summary-box ol {
+      padding-left: 20px;
+      margin-bottom: 0;
     }
 
-    .feature-text {
-      flex: 1;
-      min-width: 300px;
-    }
-
-    .feature-text h3 {
-      font-size: 1.8rem;
-      margin-bottom: 20px;
-      position: relative;
-    }
-
-    .feature-text h3::after {
-      content: "";
-      display: block;
-      width: 50px;
-      height: 4px;
-      background: var(--primary);
-      margin-top: 10px;
-    }
-
-    /* スペック表をスタイリッシュに */
-    .spec-box {
-      background: var(--dark);
-      color: white;
-      padding: 50px;
-      border-radius: 30px;
-      margin-top: 50px;
-    }
-
-    .spec-table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    .spec-table tr {
-      border-bottom: 1px solid #333;
-    }
-
-    .spec-table td {
-      padding: 20px 0;
+    .summary-box li {
+      margin-bottom: 15px;
       font-size: 1.1rem;
     }
 
-    .spec-label {
-      color: var(--primary);
-      font-weight: bold;
-      width: 40%;
+    /* 記事コンテンツ */
+    .content-section {
+      margin-bottom: 80px;
     }
 
-    /* メリット・価値 */
-    .benefit-section {
-      background: var(--light-gray);
-      padding: 100px 0;
-      border-radius: 50px;
-    }
-
-    .benefit-item {
-      display: flex;
-      align-items: flex-start;
+    h2.section-title {
+      font-size: 2rem;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 10px;
       margin-bottom: 30px;
+      position: relative;
     }
 
-    .benefit-number {
-      background: var(--accent-gradient);
+    h2.section-title::after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 80px;
+      height: 2px;
+      background: var(--primary);
+    }
+
+    h3 {
+      color: var(--primary);
+      font-size: 1.4rem;
+      margin-top: 40px;
+    }
+
+    .paradox-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin: 40px 0;
+    }
+
+    .paradox-card {
+      background: var(--bg-light);
+      padding: 30px;
+      border-left: 5px solid var(--primary);
+      border-radius: 0 10px 10px 0;
+    }
+
+    .paradox-card strong {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+
+    /* 衝突テスト・セクション */
+    .special-report {
+      background: #f0f4f2;
+      padding: 60px 40px;
+      border-radius: 20px;
+      margin: 60px 0;
+    }
+
+    /* 編集後記 */
+    .editor-note {
+      background: white;
+      border: 1px solid var(--primary);
+      padding: 40px;
+      border-radius: 15px;
+      position: relative;
+    }
+
+    .editor-note::before {
+      content: "Editor's Note";
+      position: absolute;
+      top: -15px;
+      left: 30px;
+      background: var(--primary);
       color: white;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      margin-right: 20px;
-      flex-shrink: 0;
+      padding: 2px 15px;
+      font-size: 0.8rem;
+      border-radius: 10px;
     }
 
+    /* フッター */
     footer {
+      background: var(--dark);
+      color: var(--text-gray);
       text-align: center;
-      padding: 60px;
-      background: #f1f1f1;
+      padding: 60px 20px;
     }
 
-    /* レスポンシブ */
     @media (max-width: 768px) {
-      .hero h1 { font-size: 2.5rem; }
-      .container { padding: 40px 20px; }
+      .paradox-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 2rem; }
     }
   </style>
 </head>
 <body>
 
 <section class="hero">
-  <h1>Luxima</h1>
-  <p>歪みゼロのグローバルシャッターと、最大9,000fpsの圧倒的なスピード。目に見えない一瞬を、デジタルの真実へ。</p>
+  <span class="report-badge">INDUSTRY TREND REPORT 202X</span>
+  <h1>「1000fpsの壁」を超えた製造現場が直面する、<br>データ転送と光制御のパラドックス</h1>
+  <p>高速画像解析のボトルネックを解き明かし、次世代のシステム設計を展望する</p>
 </section>
 
 <div class="container">
-  <h2>Application Areas</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>自動車分野</h3>
-      <p>衝突テストやエンジン燃焼解析など、ミリ秒を争う製品開発の最前線で活用されています。</p>
-    </div>
-    <div class="card">
-      <h3>製造・検査分野</h3>
-      <p>超高速印刷や半導体マスクの微細な欠陥を、流れるようなスピードの中で正確に検出します。</p>
-    </div>
-    <div class="card">
-      <h3>研究開発</h3>
-      <p>スポーツ科学から材料工学まで、肉眼を超えた領域の新しい知見をもたらします。</p>
-    </div>
-  </div>
-</div>
-
-<div class="container">
-  <div class="feature-row">
-    <div class="feature-text">
-      <h3>グローバルシャッター技術</h3>
-      <p>
-        動体歪みを完全に排除。どれほど高速な物体であっても、その瞬間の「正しい形状」をありのままに記録します。製造ラインの歩留まり向上に直結する、信頼の技術です。
-      </p>
-    </div>
-    <div class="feature-text">
-      <h3>UV領域への対応</h3>
-      <p>
-        最新の裏面照射(BSI)構造により、可視光のみならず紫外線(UV)感度も確保。特殊な化学反応や材料の特性変化など、従来のセンサーでは捉えきれなかった現象を可視化します。
-      </p>
-    </div>
+  <!-- エグゼクティブ・サマリー -->
+  <div class="summary-box">
+    <h2>エグゼクティブ・サマリー</h2>
+    <ol>
+      <li>超高速CMOSセンサーの普及により「現象の可視化」精度は飛躍的に向上した。</li>
+      <li>センサー性能に対し、データ転送能力や光学系の追従がボトルネック化している。</li>
+      <li>光学系とデータ基盤を統合した「高スループットなシステム設計」が競争優位を左右する。</li>
+    </ol>
   </div>
 
-  <div class="spec-box">
-    <h3>Technical Specifications</h3>
-    <table class="spec-table">
-      <tr>
-        <td class="spec-label">フレームレート</td>
-        <td>1,000 fps 〜 9,000 fps</td>
-      </tr>
-      <tr>
-        <td class="spec-label">データ帯域</td>
-        <td>24 Gbps 超高速転送</td>
-      </tr>
-      <tr>
-        <td class="spec-label">シャッター</td>
-        <td>グローバルシャッター方式</td>
-      </tr>
-      <tr>
-        <td class="spec-label">センサー構造</td>
-        <td>裏面照射型 (BSI) / UV高感度</td>
-      </tr>
-    </table>
-  </div>
-</div>
+  <!-- 市場の現状 -->
+  <section class="content-section">
+    <h2 class="section-title">市場の現状分析</h2>
+    <p>
+      自動車の衝突テスト、半導体マスク検査、高速マウンタといった過酷な環境下において、1,000fpsから9,000fpsという極めて高いフレームレートでの撮影が標準となりつつある。
+      特に、裏面照射型（BSI）構造を採用した最新技術は、UV（紫外線）領域への感度を高め、グローバルシャッター方式により動体の歪みを物理的に排除することに成功している。
+      トレンドは単なる解像度から「時間軸の分解能」へとシフトしている。
+    </p>
 
-<div class="benefit-section">
-  <div class="container">
-    <h2>導入の価値</h2>
-    <div class="benefit-item">
-      <div class="benefit-number">1</div>
-      <div>
-        <strong>高精度な解析</strong><br>
-        極めて短い時間軸での現象を正確に捉え、製品の安全性と性能を最大化します。
+    <h3>浮かび上がる「静かなる課題」</h3>
+    <p>センサーのfpsを上げれば良いという単純な仮説には、二つの技術的障壁が存在する。</p>
+    
+    
+
+    <div class="paradox-grid">
+      <div class="paradox-card">
+        <strong>1. データ転送の飽和</strong>
+        24Gbpsを超える超高速転送ではデータ欠損（パケットロス）が不可避となり、解析精度が低下する逆転現象が起きている。
+      </div>
+      <div class="paradox-card">
+        <strong>2. 光学系の追従不足</strong>
+        「ビームデリバリー」の精度が低いと画像データがボケ、高度なAI解析を導入しても本来の性能を発揮できない。
       </div>
     </div>
-    <div class="benefit-item">
-      <div class="benefit-number">2</div>
-      <div>
-        <strong>品質の革新</strong><br>
-        超高速ラインにおける微細な異常検知を自動化。ヒューマンエラーを排除し、品質を担保します。
-      </div>
-    </div>
-    <div class="benefit-item">
-      <div class="benefit-number">3</div>
-      <div>
-        <strong>未知の可視化</strong><br>
-        UV感度を活かした新たな材料解析など、研究開発にイノベーションをもたらす知見を提供します。
-      </div>
-    </div>
-  </div>
+  </section>
+
+  <!-- 特集：衝突テスト -->
+  <section class="special-report">
+    <h2 class="section-title">衝突テストにおける「歪み」の排除</h2>
+    <p>
+      EVの普及により衝突テストの要件は高度化し、バッテリーセルの熱暴走や衝撃波伝播の可視化が必須となっている。
+      しかし、主流のローリングシャッター方式では「ジェロー効果（像の歪み）」が発生し、解析の信頼性を著しく低下させる。
+    </p>
+    
+    
+    
+    <h3>技術的回答としてのグローバルシャッター</h3>
+    <p>
+      Luximaのような全画素同時露光アーキテクチャは、動体歪みを物理的にゼロにする。
+      シミュレーションと実測の乖離を埋める唯一の手段であり、再試験や設計手戻りという莫大なコスト（時間と資金）を防ぐ鍵となる。
+    </p>
+  </section>
+
+  <!-- 展望と対策 -->
+  <section class="content-section">
+    <h2 class="section-title">202X年の展望と対策</h2>
+    <h3>1. モジュラー・アーキテクチャの採用</h3>
+    <p>通信規格やデータ伝送モジュールを「差し替え可能」な設計にすることで、基板を刷新することなく最新規格へアップデートし続ける柔軟性が必要である。</p>
+    
+    <h3>2. 「光」と「眼」の同期</h3>
+    <p>センサーの性能を最大限に引き出せるよう、光学系の設計図そのものを再考し、光のコントロール基盤を構築しなければならない。</p>
+  </section>
+
+  <!-- 編集後記 -->
+  <section class="editor-note">
+    <p>
+      製造現場のボトルネックは、多くの場合、単一のコンポーネントではなく「データの通り道」と「光の制御」の不一致にあります。
+      データ転送の帯域確保や、光学系の設計精度の限界にお悩みであれば、弊社のネットワークを通じて専門的なソリューションを共有可能です。
+    </p>
+  </section>
 </div>
 
 <footer>
