@@ -186,6 +186,31 @@
     </div>
   </section>
 
+  <section id="conversion-logic">
+    <h2>データ変換の物理的意義：アナログからデジタルへ</h2>
+    <div class="grid-2">
+        <div class="description-area">
+            <h3>「翻訳」の質と速度が製品価値を決定する</h3>
+            <p>
+                自然界の光や熱は連続的な「波（アナログ）」として存在しますが、画像解析アルゴリズムやAI判定には、これらを「0と1（デジタル）」という不連続な数値へ変換するプロセスが不可欠です。本システムにおいてADCは、単なる変換器ではなく、情報の再現性を担保する「通訳者」の役割を果たします。
+            </p>
+            <ul style="list-style-type: none; padding-left: 0;">
+                <li style="margin-bottom: 15px;">
+                    <strong style="color: #f97316;">■ 垂直分解能（12ビットの精度）</strong><br>
+                    標準的な内蔵ADC（8-10bit）では識別不能な「微細な色の差」や「歯の凹凸」を4,096段階の解像度で描写。後工程の画像処理におけるデータ欠落を最小限に抑えます。
+                </li>
+                <li style="margin-bottom: 15px;">
+                    <strong style="color: #f97316;">■ 水平分解能（多チャンネル並列処理）</strong><br>
+                    LUXA3280では32本の独立した変換経路を確保。センサから溢れ出す膨大なアナログ情報を滞留させることなく、リアルタイムにデジタル信号へと変換します。
+                </li>
+            </ul>
+        </div>
+        <div class="image-area" style="text-align: center; display: flex; align-items: center; justify-content: center; background: #f1f5f9; border-radius: 8px; padding: 20px;">
+            <img src="adconve.png" alt="AD Conversion Logic Diagram" style="max-width: 100%; border: 1px solid #e2e8f0; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+        </div>
+    </div>
+</section>
+
   <!-- 4. 202X年の展望と対策 -->
   <section class="content-section">
     <h2 class="section-title">4. 202X年の展望と対策</h2>
