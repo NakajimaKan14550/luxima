@@ -211,6 +211,99 @@
     </div>
 </section>
 
+  <section id="tech-specs" style="background: #fff; padding: 60px 40px; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); margin-bottom: 40px;">
+    
+    <h2 style="color: #091a2d; border-left: 5px solid #f97316; padding-left: 15px; margin-bottom: 30px; font-size: 1.8rem;">
+        【技術原理】多チャンネル同期における垂直分解能の物理的意義
+    </h2>
+
+    <div class="content-wrapper" style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;">
+        
+        <div class="text-content">
+            <h3 style="color: #091a2d; font-size: 1.2rem; margin-bottom: 15px;">1. チャンネル数とデータスループットの課題</h3>
+            <p style="color: #1e293b; margin-bottom: 20px;">
+                計測システムにおいてチャンネル数（$ch$）の増加は、同時に処理すべきデータ転送レート（$bps$）の増大に直結します。
+                サンプリング周波数を $f_s$、量子化ビット数を $n$ とした場合、必要な帯域幅 $B$ は以下の等式で定義されます。
+                <div style="background: #f1f5f9; padding: 10px; border-radius: 4px; text-align: center; margin: 15px 0;">
+                    $B = ch \times f_s \times n$
+                </div>
+                物理的限界を超えた多チャンネル化は、しばしばビット数（分解能）の制限やサンプリングレートの低下を招きます。
+            </p>
+
+            <h3 style="color: #091a2d; font-size: 1.2rem; margin-bottom: 15px;">2. 垂直分解能によるLSB（最小有効ビット）の定義</h3>
+            <p style="color: #1e293b;">
+                分解能が 16-bit から 24-bit へ向上することは、単なる精度の向上ではなく、ダイナミックレンジの拡大を意味します。
+                フルスケール電圧 $V_{fs}$ に対する最小分解電圧（LSB）は、ビット数 $n$ に対して $V_{fs} / 2^n$ となり、微細な信号の識別閾値を決定します。
+            </p>
+        </div>
+
+        <div class="image-content" style="text-align: center;">
+            <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 10px;">図1：多チャンネル同時サンプリングと分解能の関係図</p>
+            <img src="resolution-logic.png" alt="チャンネル数と分解能の相関図" class="zoom-img" style="width: 100%; height: auto; border-radius: 4px; cursor: zoom-in; transition: all 0.3s ease; border: 1px solid #e2e8f0;">
+        </div>
+    </div>
+
+    <div style="margin-top: 40px; overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; background: #f8fafc;">
+            <thead>
+                <tr style="background: #091a2d; color: #fff;">
+                    <th style="padding: 15px; text-align: left; border: 1px solid #e2e8f0;">チャンネル構成</th>
+                    <th style="padding: 15px; text-align: left; border: 1px solid #e2e8f0;">分解能 (Bit)</th>
+                    <th style="padding: 15px; text-align: left; border: 1px solid #e2e8f0;">量子化段階</th>
+                    <th style="padding: 15px; text-align: left; border: 1px solid #e2e8f0;">最小検知電圧 (10V時)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="padding: 15px; border: 1px solid #e2e8f0;">高密度 (128ch)</td>
+                    <td style="padding: 15px; border: 1px solid #e2e8f0;">16-bit</td>
+                    <td style="padding: 15px; border: 1px solid #e2e8f0;">65,536</td>
+                    <td style="padding: 15px; border: 1px solid #e2e8f0;">152.6 μV</td>
+                </tr>
+                <tr>
+                    <td style="padding: 15px; border: 1px solid #e2e8f0;">精密 (16ch)</td>
+                    <td style="padding: 15px; border: 1px solid #e2e8f0;">24-bit</td>
+                    <td style="padding: 15px; border: 1px solid #e2e8f0;">16,777,216</td>
+                    <td style="padding: 15px; border: 1px solid #e2e8f0;">0.6 μV</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<script>
+    document.querySelectorAll('.zoom-img').forEach(img => {
+        img.addEventListener('click', function() {
+            if (!this.classList.contains('is-zoomed')) {
+                // 拡大処理
+                this.style.position = 'fixed';
+                this.style.top = '50%';
+                this.style.left = '50%';
+                this.style.transform = 'translate(-50%, -50%) scale(2)';
+                this.style.zIndex = '9999';
+                this.style.cursor = 'zoom-out';
+                this.style.boxShadow = '0 0 50px rgba(0,0,0,0.5)';
+                this.classList.add('is-zoomed');
+                
+                // 背景オーバーレイの代用
+                const overlay = document.createElement('div');
+                overlay.id = 'zoom-overlay';
+                overlay.style.cssText = 'position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(9,26,45,0.9); z-index:9998;';
+                document.body.appendChild(overlay);
+            } else {
+                // 縮小処理
+                this.style.position = 'static';
+                this.style.transform = 'none';
+                this.style.zIndex = 'auto';
+                this.style.cursor = 'zoom-in';
+                this.style.boxShadow = 'none';
+                this.classList.remove('is-zoomed');
+                document.getElementById('zoom-overlay')?.remove();
+            }
+        });
+    });
+</script>
+
   <!-- 4. 202X年の展望と対策 -->
   <section class="content-section">
     <h2 class="section-title">4. 202X年の展望と対策</h2>
