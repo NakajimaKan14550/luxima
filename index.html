@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Deep Tech Report | Luxima - 超高速センシングが定義する次世代製造DX</title>
-  <!-- FontAwesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
@@ -110,7 +109,7 @@
       padding: 40px 20px 80px;
     }
 
-    /* 新設：動画ギャラリーセクション */
+    /* 動画ギャラリーセクション */
     .gallery-section {
       margin-bottom: 60px;
     }
@@ -139,54 +138,41 @@
       border-color: var(--primary);
     }
 
-    /* 映画フィルム風デザインの再現 */
+    /* 観測モニター窓 */
     .film-container {
-      background: #111;
-      padding: 12px 25px;
+      background: #0f172a; 
+      padding: 6px;        
       position: relative;
       display: flex;
       justify-content: center;
       align-items: center;
-      aspect-ratio: 16 / 10;
+      aspect-ratio: 16 / 9; 
     }
-
-    /* フィルムの穴（パーフォレーション）を表現 */
-    .film-container::before, .film-container::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      width: 14px;
-      background-image: radial-gradient(circle, #333 3px, transparent 4px);
-      background-size: 14px 14px;
-      background-repeat: repeat-y;
-    }
-    .film-container::before { left: 5px; }
-    .film-container::after { right: 5px; }
 
     .film-screen {
       width: 100%;
       height: 100%;
-      background: #222;
+      background: #020617;
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
       position: relative;
-      border-radius: 2px;
-      border: 1px solid #444;
+      border-radius: 4px;
+      border: 1px solid #334155;
     }
 
-    .film-screen img {
+    /* 【変更】imgからvideoコントロールに変更。動画の最初の1コマを自動描画 */
+    .film-screen video {
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      opacity: 0.85;
-      transition: opacity 0.3s;
+      object-fit: contain; 
+      pointer-events: none; /* カード自体のクリックを邪魔しないようにガード */
+      transition: transform 0.3s ease;
     }
 
-    .video-card:hover .film-screen img {
-      opacity: 1;
+    .video-card:hover .film-screen video {
+      transform: scale(1.05);
     }
 
     /* 再生アイコンオーバーレイ */
@@ -243,13 +229,13 @@
       height: 2.8em;
     }
 
-    /* アクティブ選択状態（Schlieren Imaging調）の強調表示 */
+    /* アクティブ選択状態 */
     .video-card.featured-item {
       border: 2px solid var(--primary);
       box-shadow: 0 10px 15px -3px rgba(249, 115, 22, 0.1);
     }
 
-    /* スケール最適化された完全解消モーダルシステム */
+    /* モーダルシステム */
     .modal-overlay {
       position: fixed;
       top: 0;
@@ -295,7 +281,6 @@
       position: fixed;
       top: 50%;
       left: 50%;
-      /* でかすぎ問題の完全解消ロジック */
       transform: translate(-50%, -50%) scale(0.85);
       max-width: 75vw;
       max-height: 75vh;
@@ -353,7 +338,7 @@
       height: auto;
       max-height: calc(75vh - 60px);
       display: block;
-      object-fit: contain;
+      object-fit: contain; 
     }
 
     /* 各種コンテンツセクション構造 */
@@ -478,14 +463,12 @@
 </head>
 <body>
 
-<!-- ナビゲーションバー -->
 <nav class="navbar">
   <a href="https://nakajimakan14550.github.io/home/" class="navbar-logo-link">
     <img src="logo.png" alt="Logo" class="navbar-logo">
   </a>
 </nav>
 
-<!-- ヒーローエリア -->
 <section class="hero">
   <span class="report-badge">INDUSTRY REPORT 202X</span>
   <div class="hero-brand">
@@ -497,17 +480,15 @@
 
 <div class="container">
 
-  <!-- 【新設】ハイスピード物理現象 撮影実証アーカイブ -->
   <section class="gallery-section">
     <h2 class="section-title">0. ハイスピード過渡物理現象 撮影実証アーカイブ</h2>
     <p>以下は、ハイスピードカメラシステムによって可視化された高精度な過渡応答および物理現象の動的挙動の記録です。各カードを選択すると、可読性の高い最適なスケールで詳細な映像ストリームを検証できます。</p>
     
     <div class="gallery-grid">
-      <!-- カード 1 (動画ソース想定) -->
       <div class="video-card" data-video-src="1.mp4" data-title="Black Crowned Night Heron - Rajesh Mohan">
         <div class="film-container">
           <div class="film-screen">
-            <img src="2.png" alt="Black Crowned Night Heron">
+            <video src="1.mp4" preload="metadata" muted playsinline></video>
             <div class="play-overlay"><i class="fas fa-play"></i></div>
           </div>
         </div>
@@ -517,11 +498,10 @@
         </div>
       </div>
 
-      <!-- カード 2 -->
       <div class="video-card" data-video-src="2.mov" data-title="Droplet - Roberto">
         <div class="film-container">
           <div class="film-screen">
-            <img src="3.png" alt="Droplet">
+            <video src="2.mov" preload="metadata" muted playsinline></video>
             <div class="play-overlay"><i class="fas fa-play"></i></div>
           </div>
         </div>
@@ -531,11 +511,10 @@
         </div>
       </div>
 
-      <!-- カード 3 -->
       <div class="video-card" data-video-src="3.mp4" data-title="LXL8K25 Screen Recording">
         <div class="film-container">
           <div class="film-screen">
-            <img src="4.png" alt="LXL8K25">
+            <video src="3.mp4" preload="metadata" muted playsinline></video>
             <div class="play-overlay"><i class="fas fa-play"></i></div>
           </div>
         </div>
@@ -545,11 +524,10 @@
         </div>
       </div>
 
-      <!-- カード 4 -->
       <div class="video-card" data-video-src="4.mp4" data-title="Rocket Closed Loop Test - GSP">
         <div class="film-container">
           <div class="film-screen">
-            <img src="5.png" alt="Rocket Closed Loop Test">
+            <video src="4.mp4" preload="metadata" muted playsinline></video>
             <div class="play-overlay"><i class="fas fa-play"></i></div>
           </div>
         </div>
@@ -559,11 +537,10 @@
         </div>
       </div>
 
-      <!-- カード 5 -->
       <div class="video-card" data-video-src="5.mp4" data-title="Sawdust - Chronos">
         <div class="film-container">
           <div class="film-screen">
-            <img src="6.png" alt="Sawdust">
+            <video src="5.mp4" preload="metadata" muted playsinline></video>
             <div class="play-overlay"><i class="fas fa-play"></i></div>
           </div>
         </div>
@@ -573,11 +550,10 @@
         </div>
       </div>
 
-      <!-- カード 6 (注目アイテム) -->
       <div class="video-card featured-item" data-video-src="6.mov" data-title="Schlieren Imaging - Roberto">
         <div class="film-container">
           <div class="film-screen">
-            <img src="7.png" alt="Schlieren Imaging">
+            <video src="6.mov" preload="metadata" muted playsinline></video>
             <div class="play-overlay"><i class="fas fa-play"></i></div>
           </div>
         </div>
@@ -587,11 +563,10 @@
         </div>
       </div>
 
-      <!-- カード 7 -->
       <div class="video-card" data-video-src="8.mp4" data-title="Show Reel - Studio12Jours">
         <div class="film-container">
           <div class="film-screen">
-            <img src="8.png" alt="Show Reel">
+            <video src="8.mp4" preload="metadata" muted playsinline></video>
             <div class="play-overlay"><i class="fas fa-play"></i></div>
           </div>
         </div>
@@ -601,11 +576,10 @@
         </div>
       </div>
 
-      <!-- カード 8 -->
       <div class="video-card" data-video-src="1.mp4" data-title="Studio 12 Jours - Video 2">
         <div class="film-container">
           <div class="film-screen">
-            <img src="8.png" alt="Studio 12 Jours">
+            <video src="1.mp4" preload="metadata" muted playsinline></video>
             <div class="play-overlay"><i class="fas fa-play"></i></div>
           </div>
         </div>
@@ -617,7 +591,6 @@
     </div>
   </section>
 
-  <!-- スケール最適化された完全解消モーダル構成 -->
   <div class="modal-overlay" id="videoModalOverlay"></div>
   <div class="modal-wrapper" id="videoModalWrapper">
     <div class="modal-content-box">
@@ -631,13 +604,11 @@
     </div>
   </div>
 
-  <!-- 1. エグゼクティブ・サマリー -->
   <div class="summary-box">
     <h2 style="margin-top: 0; color: var(--primary);">1. エグゼクティブ・サマリー</h2>
     <p>生産ラインの高速化に伴い、従来の標準的なフレームレートでは「不具合の瞬間の挙動」を捉えきれない事態が顕在化しています。真の歩留まり改善には、外観検査という枠を超えた「物理現象の可視化」へのパラダイムシフトが不可欠です。今、Luximaが提供する超高速センシングは、製造DXにおける競争優位の源泉として浮上しています。</p>
   </div>
 
-  <!-- 2. 市場の現状分析 -->
   <section class="content-section">
     <h2 class="section-title">2. 市場の現状分析</h2>
     <p>マシンビジョンの世界において、グローバルシャッターによる歪みのない映像取得は「当たり前」の前提となりました。しかし、技術のコモディティ化は、同時に「見えているようで、見えていない」という新たな盲点を生んでいます。業界トレンドは、単なる「定常状態の監視」から、ミリ秒単位の物理現象を捉える「過渡現象の解析」へとシフトしています。</p>
@@ -648,7 +619,6 @@
     </div>
   </section>
 
-  <!-- 3. 浮かび上がる「静かなる課題」 -->
   <section class="content-section">
     <h2 class="section-title">3. 浮かび上がる「静かなる課題」</h2>
     <p>多くの企業が直面しているのは、歩留まりが低下した際、その原因を「後工程の検査」で特定しようとする構造的な遅延です。データが不十分なまま推測で設備調整を行うことこそが、自動化のROI（投資対効果）を頭打ちにしている最大の要因です。</p>
@@ -665,7 +635,6 @@
     </div>
   </section>
 
-  <!-- 4. データ変換の物理的意義 -->
   <section id="conversion-logic">
     <h2 class="section-title">4. データ変換の物理的意義：アナログからデジタルへ</h2>
     <div class="grid-2">
@@ -691,7 +660,6 @@
     </div>
   </section>
 
-  <!-- 5. 技術原理 -->
   <section id="tech-specs" style="background: #fff; padding: 40px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); border: 1px solid #e2e8f0; margin-bottom: 40px;">
     <h2 style="color: var(--dark); border-left: 5px solid var(--primary); padding-left: 15px; margin-top: 0; margin-bottom: 30px; font-size: 1.8rem;">
         【技術原理】多チャンネル同期における垂直分解能の物理的意義
@@ -750,7 +718,6 @@
     </div>
   </section>
 
-  <!-- 6. 202X年の展望と対策 -->
   <section class="content-section">
     <h2 class="section-title">6. 202X年の展望と対策</h2>
     <p>今後の製造現場における技術的優位性は、計測・フィードバック・制御をナノ秒〜マイクロ秒オーダーで統合できるか否かにかかっています。</p>
@@ -771,7 +738,6 @@
     </div>
   </section>
 
-  <!-- 7. 結論 -->
   <section class="highlight-box">
     <h2 style="margin-top: 0; color: var(--dark);">7. 結論：超高速センシングは「オーバースペック」か？</h2>
     <p>
@@ -784,7 +750,6 @@
   </section>
 </div>
 
-<!-- 指定フッター (厳守要件) -->
 <footer style="background: #091a2d; color: #fff; padding: 60px 20px; text-align: center;">
     <div class="footer-info">
         <p class="company-name" style="font-size: 1.5rem; font-weight: bold; margin-bottom: 20px;">クロニクス株式会社</p>
@@ -804,7 +769,6 @@
     </div>
 </footer>
 
-<!-- モーダル制御用JavaScriptスクリプト -->
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const videoCards = document.querySelectorAll('.video-card');
